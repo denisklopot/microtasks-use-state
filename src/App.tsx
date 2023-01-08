@@ -1,26 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // let a = 1
+    let [a, setA] = useState(1)
+    const onClickHandler = () => {
+        setA(++a)
+        console.log(a)
+    }
+    const dataReset = () => {
+        setA(0)
+    }
+    const onClickSumUp = () => {
+        setA(--a)
+        console.log(a)
+    }
+
+    return (
+        <div className="App">
+            <h1>{a}</h1>
+            <button onClick={onClickHandler}>number</button>
+            <button onClick={dataReset}>0</button>
+            <button onClick={onClickSumUp}>sumUp</button>
+        </div>
+    );
 }
 
 export default App;
